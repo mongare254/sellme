@@ -1,0 +1,175 @@
+{% extends 'base.html' %}
+{% block css %}
+    <style>
+        table{
+
+            width: 600px;
+
+            box-shadow: -1px 12px 12px -6px rgba(0,0,0,0.5);
+
+        }
+
+        table, td, th{
+
+            padding: 10px;
+
+            border: 1px solid lightgray;
+
+            border-collapse: collapse;
+
+            text-align: center;
+
+            cursor: pointer;
+
+        }
+
+        td{
+
+            font-size: 16px;
+
+        }
+
+        th{
+
+            background-color: blue;
+
+            color: white;
+
+        }
+
+        tr:nth-child(odd){
+
+            background-color: lightblue;
+
+        }
+
+        tr:nth-child(odd):hover{
+
+            background-color: dodgerblue;
+
+            color: white;
+
+            transform: scale(1.5);
+
+            transition: transform 300ms ease-in;
+
+        }
+
+        tr:nth-child(even){
+
+            background-color: #ededed;
+
+        }
+
+        tr:nth-child(even):hover{
+
+            background-color: lightgray;
+
+            transform: scale(1.5);
+
+            transition: transform 300ms ease-in;
+
+
+        }
+        .myheader{
+            color: black;
+            text-align: left;
+            margin:20px;
+        }
+
+    </style>
+
+{% endblock %}
+{% block content %}
+
+    <div class="col-md-10 offset-2">
+        <h3 class="myheader">My items(Those pending auction are listed below)</h3>
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Category</th>
+                <th>Starting Price</th>
+                <th>Planned Auction Date</th>
+                <th>Approval Status</th>
+                <th>Auction Status</th>
+
+            </tr>
+            {% if myitems %}
+                {% for item in myitems %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ item.item_name }}</td>
+                        <td>{{ item.description }}</td>
+                        <td>{{ item.category }}</td>
+                        <td>{{ item.item_price }}</td>
+                        <td></td>
+                        <td>{{ item.approval_status }}</td>
+                        <td>{{ item.auction_status }}</td>
+                    </tr>
+                {% endfor %}
+            {% else %}
+                <tr>
+                    <td colspan="8">No uploaded items found</td>
+
+                </tr>
+            {% endif %}
+
+
+        </table>
+
+        <h3 class="myheader">Bought items(Items that have been bought by you)</h3>
+        <table>
+            <tr>
+                <th>No</th>
+                <th>Item Name</th>
+                <th>Description</th>
+                <th>Starting Price</th>
+                <th>Planned Auction Date</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>HP LAPTOP</td>
+                <td>24GHZ, 3GB RAM </td>
+                <td>23456</td>
+                <td>24.04.2021</td>
+                <td>PENDING APPROVAL</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>HP LAPTOP</td>
+                <td>24GHZ, 3GB RAM </td>
+                <td>23456</td>
+                <td>24.04.2021</td>
+                <td>PENDING APPROVAL</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>HP LAPTOP</td>
+                <td>24GHZ, 3GB RAM </td>
+                <td>23456</td>
+                <td>24.04.2021</td>
+                <td>PENDING APPROVAL</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>HP LAPTOP</td>
+                <td>24GHZ, 3GB RAM </td>
+                <td>23456</td>
+                <td>24.04.2021</td>
+                <td>PENDING APPROVAL</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>HP LAPTOP</td>
+                <td>24GHZ, 3GB RAM </td>
+                <td>23456</td>
+                <td>24.04.2021</td>
+                <td>PENDING APPROVAL</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

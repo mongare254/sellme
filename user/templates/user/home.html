@@ -1,0 +1,217 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block css %}
+    <link rel="stylesheet" href="{% static 'user/sliders/css/owl.carousel.css' %}">
+    <link rel="stylesheet" href="{% static 'user/sliders/css/style.css' %}">
+    <style>
+        .info{
+            background-color: #1b1e21;
+            color: dodgerblue;
+            font-size: 36px;
+            padding: 20px;
+            border-radius: 34px;
+            border: 2px white;
+            border-right:none ;
+            border-left:none;
+            height:50px;
+        }
+        .ml2{
+            margin-top: -5%;
+            margin-left:30%;
+            color:blue;
+            font-family: Lucida Handwriting;
+
+        }
+
+
+    </style>
+{% endblock %}
+
+{% block content %}
+    <div class="row">
+        <div class="col-md-8 offset-2">
+            <div class="info">
+                <p class="ml2">Welcome to Sellme</p>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="container display" style="min-height:300px; margin-top: -90px;">
+            <div class="customNavigation pull-left" style="padding-bottom:10px;">
+                <a class="btn prev btn-default"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+            <div class="text-center">
+                <h3 class="title">RECENT ITEMS</h3>
+            </div>
+            <div class="customNavigation pull-right" style="padding-bottom:10px;">
+                <a class="btn next btn-default"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+            <div id="owl-carousel" class="owl-carousel owl-theme" style="margin-top: -50px;">
+                {% for item in items %}
+                    <div class="course mr-3">
+                        <div class="slide-img">
+                            <img src="{{ item.item_image.url }}" alt="" />
+                            <div class="overlay">
+                                <a href="{% url 'user:interested' item.id %}" class="interested">Interested</a>
+                            </div>
+                        </div>
+                        <div class="detail-box">
+                            <div class="type">
+                                <a href="#">{{ item.item_name }}</a>
+                                <span>{{ item.description }}</span>
+                                <b>Category: {{ item.category }}</b>
+                            </div>
+                            <a href="#" class="price">{{item.item_price}}</a>
+
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="container display" style="min-height:300px; margin-top: -50px;">
+            <div class="customNavigation pull-left" style="padding-bottom:10px;">
+                <a class="btn prev1 btn-default"><span class="glyphicon glyphicon-chevron-left"></span></a>
+            </div>
+            <div class="text-center">
+                <h3 class="title">Clothes</h3>
+            </div>
+            <div class="customNavigation pull-right" style="padding-bottom:10px;">
+                <a class="btn next1 btn-default"><span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+            <div id="owl-carousel1" data-aos="fade-in" class="owl-carousel owl-theme" style="margin-top: -50px;">
+                <div class="course">
+                    <div class="slide-img">
+                        <img src="{% static 'user/images/1lacoste.png' %}" alt="" />
+                        <div class="overlay">
+                            <a href="#" class="interested">Interested</a>
+                        </div>
+                    </div>
+                    <div class="detail-box">
+                        <div class="type">
+                            <a href="#">Lacoste</a>
+                            <span>Sweatshirt</span>
+                        </div>
+                        <a href="#" class="price">Ksh.2000</a>
+                    </div>
+                </div>
+                <div class="course" >
+                    <div class="slide-img">
+                        <img src="{% static 'user/images/1lacoste.png' %}" alt="" />
+                        <div class="overlay">
+                            <a href="#" class="interested">Interested</a>
+                        </div>
+                    </div>
+                    <div class="detail-box">
+                        <div class="type">
+                            <a href="#">Lacoste</a>
+                            <span>Sweatshirt</span>
+                        </div>
+                        <a href="#" class="price">Ksh.2000</a>
+                    </div>
+                </div>
+                <div class="course">
+                    <div class="slide-img">
+                        <img src="{% static 'user/images/1lacoste.png' %}" alt="" />
+                        <div class="overlay">
+                            <a href="#" class="interested">Interested</a>
+                        </div>
+                    </div>
+                    <div class="detail-box">
+                        <div class="type">
+                            <a href="#">Lacoste</a>
+                            <span>Sweatshirt</span>
+                        </div>
+                        <a href="#" class="price">Ksh.2000</a>
+                    </div>
+                </div>
+                <div class="course">
+                    <div class="slide-img">
+                        <img src="{% static 'user/images/1lacoste.png' %}" alt="" />
+                        <div class="overlay">
+                            <a href="#" class="interested">Interested</a>
+                        </div>
+                    </div>
+                    <div class="detail-box">
+                        <div class="type">
+                            <a href="#">Lacoste</a>
+                            <span>Sweatshirt</span>
+                        </div>
+                        <a href="#" class="price">Ksh.2000</a>
+                    </div>
+                </div>
+                <div class="course">
+                    <div class="slide-img">
+                        <img src="{% static 'user/images/1lacoste.png' %}" alt="" />
+                        <div class="overlay">
+                            <a href="#" class="interested">Interested</a>
+                        </div>
+                    </div>
+                    <div class="detail-box">
+                        <div class="type">
+                            <a href="#">Lacoste</a>
+                            <span>Sweatshirt</span>
+                        </div>
+                        <a href="#" class="price">Ksh.2000</a>
+                    </div>
+                </div>
+                <div class="course">
+                    <div class="slide-img">
+                        <img src="{% static 'user/images/1lacoste.png' %}" alt="" />
+                        <div class="overlay">
+                            <a href="#" class="interested">Interested</a>
+                        </div>
+                    </div>
+                    <div class="detail-box">
+                        <div class="type">
+                            <a href="#">Lacoste</a>
+                            <span>Sweatshirt</span>
+                        </div>
+                        <a href="#" class="price">Ksh.2000</a>
+                    </div>
+                </div>
+                <div class="course">
+                    <div class="slide-img">
+                        <img src="{% static 'user/images/1lacoste.png' %}" alt="" />
+                        <div class="overlay">
+                            <a href="#" class="interested">Interested</a>
+                        </div>
+                    </div>
+                    <div class="detail-box">
+                        <div class="type">
+                            <a href="#">Lacoste</a>
+                            <span>Sweatshirt</span>
+                        </div>
+                        <a href="#" class="price">Ksh.2000</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+
+{% block js %}
+    <script src="{% static 'user/sliders/js/owl.carousel.js' %}"></script>
+    <script src="{% static 'user/sliders/js/functions.js' %}"></script>
+    <script>
+        var textWrapper = document.querySelector('.ml2');
+        textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+        anime.timeline({loop: true})
+            .add({
+                targets: '.ml2 .letter',
+                scale: [4,1],
+                opacity: [0,1],
+                translateZ: 0,
+                easing: "easeOutExpo",
+                duration: 950,
+                delay: (el, i) => 70*i
+            }).add({
+            targets: '.ml2',
+            opacity: 0,
+            duration: 1000,
+            easing: "easeOutExpo",
+            delay: 1000
+        });
+    </script>
+{% endblock %}

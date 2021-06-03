@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block css %}
+    <style>
+        .gazzer{
+            background-color: navajowhite;
+            padding: 20px;
+            border-radius: 20px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div >
+        <div class="row gazzer">
+            <div class="col-md-5">
+                {% for item in item %}
+                    <img src="{{ item.item_image.url }}">
+                    <h3>Item name: <span style="color: #1e7e34">{{ item.item_name }}</span></h3>
+                    <h3>Description: <span style="color: #1e7e34">{{ item.description }}</span></h3>
+                    <h3>Starting Price:<span style="color: #1e7e34">{{ item.item_price }}</span> </h3>
+                {% endfor %}
+            </div>
+            <div class="col-md-7">
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>Please note!</strong>Follow instructions below to Pay Service fee before you can be allowed to participate in the auction of this item.
+
+                </div>
+                <form>
+                    <!-- phone input -->
+                    <div class="form-outline mb-4">
+                        <input type="number" id="phone" name="phone" placeholder="Format: 254700534002" class="form-control" />
+                        <label class="form-label" for="phone">Phone Number</label>
+                    </div>
+
+                    <!-- Amount input -->
+                    <div class="form-outline mb-4">
+                        <input type="number" id="amount" name="amount" placeholder="500" value="500" class="form-control"  disabled/>
+                        <label class="form-label" for="amount">Amount</label>
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="hidden" id="item_id" name="item_id" class="form-control" />
+                    </div>
+                    <div class="form-outline mb-4">
+                        <input type="hidden" id="username" name="username" class="form-control" />
+                    </div>
+                    <div class="form-outline mb-4">
+                        <!-- Submit button -->
+                    <button type="submit" class="btn btn-primary ">Sign in</button>
+                    </div>
+                        <div class="col">
+
+                            <a href="{% url 'user:home' %}" style="color: blue; text-decoration: underline">Go Back home</a>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+
+{% endblock %}
